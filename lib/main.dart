@@ -14,26 +14,24 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-			debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-				future: _determinePosition(),
-        builder: (context, snap) {
-					if(snap.hasData) {
-						return BlocProvider<WeatherBlocBloc>(
-							create: (context) => WeatherBlocBloc()..add(
-								FetchWeather(snap.data as Position)
-							),
-							child: const HomeScreen(),
-						);
-					} else {
-						return const Scaffold(
-							body: Center(
-								child: CircularProgressIndicator(),
-							),
-						);
-					}
-        }
-      )
+        debugShowCheckedModeBanner: false,
+        home: FutureBuilder(
+            future: _determinePosition(),
+            builder: (context, snap) {
+              if (snap.hasData) {
+                return BlocProvider<WeatherBlocBloc>(
+                  create: (context) => WeatherBlocBloc()
+                    ..add(FetchWeather(snap.data as Position)),
+                  child: const HomeScreen(),
+                );
+              } else {
+                return const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
+            })
     );
   }
 }
@@ -57,10 +55,10 @@ Future<Position> _determinePosition() async {
       return Future.error('Location permissions are denied');
     }
   }
-  
+
   if (permission == LocationPermission.deniedForever) {
     return Future.error(
-      'Location permissions are permanently denied, we cannot request permissions.');
+        'Location permissions are permanently denied, we cannot request permissions.');
   }
 
   // When we reach here, permissions are granted and we can

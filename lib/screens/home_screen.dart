@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
 									width: 300, 
 									decoration: const BoxDecoration(
 										shape: BoxShape.circle,
-										color: Color(0xFF673AB7)
+										color: Color(0xFF5B9DE8)
 									),
 								),
 							),
@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
 									height: 300,
 									width: 600,
 									decoration: const BoxDecoration(
-										color: Color(0xFFFFAB40)
+										color: Color(0xFFFF8940)
 									),
 								),
 							),
