@@ -1,6 +1,6 @@
 # weather_app
 
-A Weather Forcasting app
+A Weather Forecasting app
 
 ## Getting Started
 
